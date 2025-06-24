@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Computer Science & Engineering Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3b82f6',
+                            dark: '#2563eb'
+                        },
+                        secondary: {
+                            light: '#10b981',
+                            dark: '#059669'
+                        }
+                    },
+                    animation: {
+                        'text-slide': 'text-slide 8s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+                    },
+                    keyframes: {
+                        'text-slide': {
+                            '0%, 20%': { transform: 'translateY(0)' },
+                            '25%, 45%': { transform: 'translateY(-1.8rem)' },
+                            '50%, 70%': { transform: 'translateY(-3.6rem)' },
+                            '75%, 95%': { transform: 'translateY(-5.4rem)' },
+                            '100%': { transform: 'translateY(-7.2rem)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-overlay {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .tool-icon:hover {
+            transform: scale(1.1);
+        }
+        .text-slider {
+            height: 1.8rem;
+            overflow: hidden;
+        }
+        .text-slider div {
+            line-height: 1.8rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <!-- Header with theme toggle -->
+    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary-light dark:text-primary-dark">Portfolio</a>
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition">About</a>
+                    <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition">Projects</a>
+                    <a href="#skills" class="hover:text-primary-light dark:hover:text-primary-dark transition">Skills</a>
+                    <a href="#contact" class="hover:text-primary-light dark:hover:text-primary-dark transition">Contact</a>
+                </nav>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-12 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-primary-light dark:bg-primary-dark rounded-full opacity-20 animate-float"></div>
+                    <img src="profile.jpg" 
+                         alt="Profile" 
+                         class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg animate-float"
+                         style="animation-delay: 0.2s">
+                </div>
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-primary-light dark:text-primary-dark">Mouhamadou Mamoune Mbacké</span></h1>
+                <div class="text-xl mb-6">
+                    <div class="text-slider overflow-hidden">
+                        <div class="animate-text-slide">
+                            <div>Developer</div>
+                            <div>Engineer</div>
+                            <div>Chess Player</div>
+                            <div>Problem Solver</div>
+                            <div>Tech Enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg mb-8 text-gray-600 dark:text-gray-300">
+                    Computer Science and Electronics, Telecommunications & Embedded Systems Engineering Student passionate about creating innovative solutions that bridge hardware and software.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-full hover:bg-primary-dark dark:hover:bg-primary-light transition shadow-lg">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-6 py-3 border-2 border-primary-light dark:border-primary-dark text-primary-light dark:text-primary-dark rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">My Projects</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Here are some of my recent projects that showcase my skills in both software and hardware development.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="interface.png" 
+                             alt="Project 1" 
+                             class="w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center p-6">
+                            <h3 class="text-white text-xl font-bold mb-2">The Eye</h3>
+                            <p class="text-gray-300 text-center mb-4">full-featured platform integrating real-time monitoring and predictive analytics through cutting-edge machine learning.</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white rounded-full text-sm hover:bg-primary-dark dark:hover:bg-primary-light transition">
+                                    Live Demo
+                                </a>
+                                <a href="https://github.com/agentLakh/the_eye" class="px-4 py-2 bg-white text-gray-800 rounded-full text-sm hover:bg-gray-100 transition">
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Advanced AI Surveillance System</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">full-featured platform integrating real-time monitoring and predictive analytics through cutting-edge machine learning..</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Computer Vision</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">DeepLearning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 2" 
+                             class="w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center p-6">
+                            <h3 class="text-white text-xl font-bold mb-2">Dakar crime dashboard</h3>
+                            <p class="text-gray-300 text-center mb-4">Predictive Crime Analytics Platform</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white rounded-full text-sm hover:bg-primary-dark dark:hover:bg-primary-light transition">
+                                    Live Demo
+                                </a>
+                                <a href="#" class="px-4 py-2 bg-white text-gray-800 rounded-full text-sm hover:bg-gray-100 transition">
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Dakar crime dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">A platform that analyzes police data to map crimes in Dakar and detect high-risk zones and patterns.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Visualization</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Database</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Geospatial Tools</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" 
+                             alt="Project 3" 
+                             class="w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 bg-black/70 flex flex-col justify-center items-center p-6">
+                            <h3 class="text-white text-xl font-bold mb-2">AI Chess Engine</h3>
+                            <p class="text-gray-300 text-center mb-4">Machine learning based chess engine with GUI</p>
+                            <div class="flex space-x-3">
+                                <a href="#" class="px-4 py-2 bg-primary-light dark:bg-primary-dark text-white rounded-full text-sm hover:bg-primary-dark dark:hover:bg-primary-light transition">
+                                    Live Demo
+                                </a>
+                                <a href="#" class="px-4 py-2 bg-white text-gray-800 rounded-full text-sm hover:bg-gray-100 transition">
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI Chess Engine</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Chess engine using machine learning algorithms with a modern GUI interface.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded-full text-sm">PyGame</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 border-2 border-primary-light dark:border-primary-dark text-primary-light dark:text-primary-dark rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">My Toolbox</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Technologies and tools I'm proficient with across hardware and software development.
+            </p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fab fa-python text-blue-500"></i>
+                        </div>
+                        <h3 class="font-bold">Python</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fab fa-java text-red-500"></i>
+                        </div>
+                        <h3 class="font-bold">Java</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fab fa-js-square text-yellow-500"></i>
+                        </div>
+                        <h3 class="font-bold">JavaScript</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-microchip text-gray-500"></i>
+                        </div>
+                        <h3 class="font-bold">C/C++</h3>
+                    </div>
+                </div>
+                
+                <!-- Hardware -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-terminal text-green-500"></i>
+                        </div>
+                        <h3 class="font-bold">Cli</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-bolt text-yellow-500"></i>
+                        </div>
+                        <h3 class="font-bold">Embedded Systems</h3>
+                    </div>
+                </div>
+                
+                <!-- Frameworks -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fab fa-react text-blue-400"></i>
+                        </div>
+                        <h3 class="font-bold">React</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-microchip text-green-500"></i>
+                        </div>
+                        <h3 class="font-bold">Arduino</h3>
+                    </div>
+                </div>
+                
+                <!-- Telecom -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-satellite-dish text-purple-500"></i>
+                        </div>
+                        <h3 class="font-bold">Telecom</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-wifi text-blue-400"></i>
+                        </div>
+                        <h3 class="font-bold">Networking</h3>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fab fa-git-alt text-orange-500"></i>
+                        </div>
+                        <h3 class="font-bold">Git</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl tool-icon transition-transform">
+                            <i class="fas fa-database text-blue-500"></i>
+                        </div>
+                        <h3 class="font-bold">SQL</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Get In Touch</h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+            </p>
+            
+            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12 bg-primary-light dark:bg-primary-dark text-white">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>Mamounembacke54@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p>+221 76 809 44 46</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Location</h4>
+                                    <p>Dakar, Sénégal</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-bold mb-4">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/mouhamadou-mamoune-mbacke-b28a08269/" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/agentLakh" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent bg-white dark:bg-gray-800">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent bg-white dark:bg-gray-800">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent bg-white dark:bg-gray-800">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:border-transparent bg-white dark:bg-gray-800"></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-primary-light dark:bg-primary-dark text-white rounded-lg hover:bg-primary-dark dark:hover:bg-primary-light transition shadow-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-200 dark:bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.linkedin.com/in/mouhamadou-mamoune-mbacke-b28a08269/" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://github.com/agentLakh" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+                © <span id="year"></span> Mouhamadou Mbacke. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Set initial theme based on localStorage or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle (would need to be implemented with more JS)
+        // This is just a placeholder
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        mobileMenuButton.addEventListener('click', () => {
+            // Implement mobile menu toggle functionality here
+            console.log('Mobile menu clicked');
+        });
+    </script>
+</body>
+</html>
